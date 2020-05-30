@@ -5,6 +5,7 @@ const phraseDiv = document.getElementById("phrase");
 const overlay = document.getElementById("overlay");
 const reset = document.getElementsByClassName("btn__reset")[0];
 const phraseList= document.getElementById("phraseList");
+const images = document.getElementsByTagName("IMG");
 let missed =0;
 const phrases=[
     "it is never too late",
@@ -103,7 +104,10 @@ reload.style.alignSelf="center"
 
 // addding a reload event handler to reload button and making necesarry changes 
 reload.addEventListener("click",()=>{
-  console.log(phraseList)
+    for(i=0;i<images.length;i++){
+        images[i].src="images/liveHeart.png"
+    }
+  
      missed=0;
 
      qwerty.innerHTML=`<div class="keyrow">
@@ -121,6 +125,7 @@ reload.addEventListener("click",()=>{
    addPhraseToDisplay(newArray)
    overlay.style.visibility="hidden"
 
+   
 
 })
 
@@ -134,6 +139,7 @@ function checkWin(){
 
     if(shown.length===letters.length){
       phraseList.innerHTML=""
+      overlay.firstElementChild.innerText="You Win!"
         reset.style.display="none";
         overlay.classList.add("win");
         overlay.appendChild(reload)
@@ -142,7 +148,7 @@ function checkWin(){
     }
     else if (missed >=5){
        phraseList.innerHTML=""
-      overlay.firstElementChild.innerText="You Win!"
+      overlay.firstElementChild.innerText="You losse!"
       reset.style.display="none"
       overlay.classList.add("lose");
       overlay.appendChild(reload)
