@@ -75,6 +75,7 @@ let result=[]
 qwerty.addEventListener("click",(e)=>{
     
     if(e.target.tagName==="BUTTON"){
+        e.target.disabled=true
     e.target.className="chosen";
 
 let letterFound= checkLetter(e.target.innerText)
