@@ -139,6 +139,7 @@ function checkWin(){
     const shown= document.getElementsByClassName("show");
 
     if(shown.length===letters.length){
+    document.getElementsByClassName("main-container")[0].style.backgroundColor="green"
       phraseList.innerHTML=""
       overlay.firstElementChild.innerText="You Win!"
         reset.style.display="none";
@@ -149,7 +150,7 @@ function checkWin(){
     }
     else if (missed >=5){
        phraseList.innerHTML=""
-      overlay.firstElementChild.innerText="You losse!"
+      overlay.firstElementChild.innerText="You lose!"
       reset.style.display="none"
       overlay.classList.add("lose");
       overlay.appendChild(reload)
